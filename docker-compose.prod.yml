@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+  db:
+    image: mongo:latest
+    ports:
+      - "27017"
+    volumes:
+      - db-data:/data/db
+    networks:
+      - back-db
+    restart: always
+
+  back:
+    build:
+      context: ./backend
+      dockerfile: dockerfile.prod
+    image: back:prod
+    environment:
+      - MONGO_URI=mongodb://db:27017/mernapp
+    ports:
+      - "5000"
+    depends_on:
+      - db
+    networks:
+      - back-db
+      - front-back
+    restart: always
+
+  front:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile.prod
+    image: front:prod
+    expose:
+      - "80"
+    depends_on:
+      - back
+    networks:
+      - front-back
+      - proxy-front
+    restart: always
+    environment:
+      - VIRTUAL_HOST=www.app.com
+
+networks:
+  front-back:
+    driver: bridge
+
+  back-db:
+    driver: bridge
+
+  proxy-front:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
