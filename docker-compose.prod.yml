@@ -41,7 +41,7 @@ services:
       - proxy-front
     restart: always
     environment:
-      - VIRTUAL_HOST=www.app.com
+      - VIRTUAL_HOST=testapp.local.com
 
 networks:
   front-back:
