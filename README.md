@@ -28,8 +28,8 @@
 
   **PS : it's an obligation to respect the order of starting the containers , so that the app work correctly .**
 
-      - using a terminal, go to project directory
-      - run the command `make compose_run_proxy`.
+     - using a terminal, go to project directory
+     - run the command `make compose_run_proxy`.
 
 - ##### Run the application
 
@@ -46,8 +46,8 @@
 
   **PS : AS A BEST PRACTICE , IT'S PREFERABLE TO RESPECT THE ORDER OF STOPING THE CONTAINERS , STOPING APPS CONTAINERS FIRST , THEN , NGINX-REVERSE PROXY CONTAINER .**
 
-      - using a terminal, go to project directory
-      - run the command `make compose_stop_app`.
+     - using a terminal, go to project directory
+     - run the command `make compose_stop_app`.
 
 - ##### stop the reverse proxy
 
