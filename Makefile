@@ -1,6 +1,3 @@
-compose_run_app_build:
-	docker-compose -f docker-compose.prod.yml up -d  
-
 compose_run_app:
 	docker-compose -f docker-compose.prod.yml up -d
 
